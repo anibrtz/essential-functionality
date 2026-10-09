@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { categories, type Article, getCategory, formatDate } from "@/lib/articles";
+import { categories, type Article, getCategory, formatDate, categoryImages } from "@/lib/articles";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
