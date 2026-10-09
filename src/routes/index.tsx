@@ -17,7 +17,8 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
-  const [first, ...rest] = articles;
+  const first = articles[0]!;
+  const rest = articles.slice(1);
   return (
     <Layout>
       <div className="mx-auto max-w-6xl px-4 py-12">
