@@ -1,4 +1,16 @@
+import imgRelaciones from "@/assets/cat-relaciones.jpg";
+import imgAutoestima from "@/assets/cat-autoestima.jpg";
+import imgPsicologia from "@/assets/cat-psicologia.jpg";
+import imgBelleza from "@/assets/cat-belleza.jpg";
+
 export type Category = { slug: string; name: string; description: string };
+
+export const categoryImages: Record<string, string> = {
+  relaciones: imgRelaciones,
+  autoestima: imgAutoestima,
+  psicologia: imgPsicologia,
+  belleza: imgBelleza,
+};
 
 export const categories: Category[] = [
   { slug: "relaciones", name: "Relaciones", description: "Amor, pareja, amistad y vínculos sanos." },

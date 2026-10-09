@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Layout, ArticleCard } from "@/components/Layout";
-import { articles, getArticle, getCategory, formatDate } from "@/lib/articles";
+import { articles, getArticle, getCategory, formatDate, categoryImages } from "@/lib/articles";
 
 export const Route = createFileRoute("/articulo/$slug")({
   loader: ({ params }) => {
@@ -32,7 +32,13 @@ function ArticlePage() {
         <h1 className="font-display mt-2 text-4xl md:text-5xl leading-tight text-foreground">{a.title}</h1>
         <p className="mt-4 text-lg text-muted-foreground">{a.excerpt}</p>
         <p className="mt-4 text-xs text-muted-foreground">Por {a.author} · {formatDate(a.date)} · {a.readTime} min de lectura</p>
-        <div className={`cover-${a.category} my-8 aspect-[16/9] rounded-sm`} />
+        <img
+          src={categoryImages[a.category]}
+          alt={a.title}
+          width={1200}
+          height={800}
+          className="my-8 aspect-[16/9] w-full rounded-sm object-cover"
+        />
         <div className="space-y-5 text-[17px] leading-relaxed text-foreground">
           {a.body.map((b, i) => (
             <div key={i}>
