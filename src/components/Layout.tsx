@@ -54,8 +54,15 @@ export function ArticleCard({ a, large }: { a: Article; large?: boolean }) {
   const cat = getCategory(a.category);
   return (
     <Link to="/articulo/$slug" params={{ slug: a.slug }} className="group block">
-      <div className={`cover-${a.category} rounded-sm ${large ? "aspect-[16/10]" : "aspect-[4/3]"} flex items-end p-5`}>
-        <span className="font-display text-6xl text-primary-foreground/80">{a.title.charAt(0)}</span>
+      <div className={`overflow-hidden rounded-sm ${large ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+        <img
+          src={categoryImages[a.category]}
+          alt={a.title}
+          width={1200}
+          height={800}
+          loading={large ? "eager" : "lazy"}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
       </div>
       <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-primary">{cat?.name}</p>
       <h3 className={`font-display mt-1 text-foreground group-hover:text-primary transition-colors ${large ? "text-3xl md:text-4xl" : "text-xl"}`}>{a.title}</h3>

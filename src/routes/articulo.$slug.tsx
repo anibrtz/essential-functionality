@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Layout, ArticleCard } from "@/components/Layout";
-import { articles, getArticle, getCategory, formatDate } from "@/lib/articles";
+import { articles, getArticle, getCategory, formatDate, categoryImages } from "@/lib/articles";
 
 export const Route = createFileRoute("/articulo/$slug")({
   loader: ({ params }) => {
