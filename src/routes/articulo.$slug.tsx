@@ -44,9 +44,27 @@ function ArticlePage() {
             <div key={i}>
               {b.h && <h2 className="font-display mb-2 text-2xl">{b.h}</h2>}
               <p>{b.p}</p>
+              {i === 1 && <AdSlot />}
             </div>
           ))}
         </div>
+        <aside className="mt-10 rounded-sm border border-border p-6">
+          <p className="text-[11px] uppercase tracking-[0.2em] text-primary">Recomendado</p>
+          <p className="font-display mt-1 text-2xl text-foreground">Nuestros favoritos para ti</p>
+          <p className="mt-2 text-sm text-muted-foreground">Pronto verás aquí productos que probamos y recomendamos.</p>
+          <p className="mt-3 text-[11px] text-muted-foreground">Aviso: algunos enlaces serán de afiliación; podemos recibir una comisión sin coste extra para ti.</p>
+        </aside>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <Link to="/guia-gratuita" className="rounded-sm bg-secondary p-5 hover:opacity-90">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-primary">Gratis</p>
+            <p className="font-display text-xl text-foreground">Descarga «Empezá por vos»</p>
+          </Link>
+          <Link to="/ebook" className="rounded-sm bg-secondary p-5 hover:opacity-90">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-primary">Ebook · 12,90 €</p>
+            <p className="font-display text-xl text-foreground">Código Femenino: guía práctica</p>
+          </Link>
+        </div>
+        <AdSlot />
       </article>
       <div className="mx-auto max-w-6xl px-4 pb-16">
         <h2 className="mb-6 border-b border-border pb-2 text-xs uppercase tracking-[0.25em] text-muted-foreground">Sigue leyendo</h2>
