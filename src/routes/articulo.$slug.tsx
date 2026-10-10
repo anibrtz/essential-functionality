@@ -73,3 +73,11 @@ function ArticlePage() {
     </Layout>
   );
 }
+
+function AdSlot() {
+  return (
+    <div className="my-8 flex h-24 items-center justify-center rounded-sm border border-dashed border-border text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+      Espacio publicitario · próximamente
+    </div>
+  );
+}
