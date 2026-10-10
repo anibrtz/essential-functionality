@@ -16,6 +16,8 @@ export function Layout({ children }: { children: ReactNode }) {
                 {c.name}
               </Link>
             ))}
+            <Link to="/guia-gratuita" className="hover:text-primary" activeProps={{ className: "text-primary" }}>Guía gratis</Link>
+            <Link to="/ebook" className="hover:text-primary" activeProps={{ className: "text-primary" }}>Ebook</Link>
             <Link to="/sobre" className="hover:text-primary" activeProps={{ className: "text-primary" }}>Nosotras</Link>
           </nav>
         </div>

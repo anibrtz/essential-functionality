@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EbookRouteImport } from './routes/ebook'
+import { Route as GuiaGratuitaRouteImport } from './routes/guia-gratuita'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ArticuloSlugRouteImport } from './routes/articulo.$slug'
 import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
@@ -17,6 +19,16 @@ import { Route as CategoriaSlugRouteImport } from './routes/categoria.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EbookRoute = EbookRouteImport.update({
+  id: '/ebook',
+  path: '/ebook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuiaGratuitaRoute = GuiaGratuitaRouteImport.update({
+  id: '/guia-gratuita',
+  path: '/guia-gratuita',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -37,12 +49,16 @@ const CategoriaSlugRoute = CategoriaSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ebook': typeof EbookRoute
+  '/guia-gratuita': typeof GuiaGratuitaRoute
   '/sobre': typeof SobreRoute
   '/articulo/$slug': typeof ArticuloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ebook': typeof EbookRoute
+  '/guia-gratuita': typeof GuiaGratuitaRoute
   '/sobre': typeof SobreRoute
   '/articulo/$slug': typeof ArticuloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
@@ -50,20 +66,43 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ebook': typeof EbookRoute
+  '/guia-gratuita': typeof GuiaGratuitaRoute
   '/sobre': typeof SobreRoute
   '/articulo/$slug': typeof ArticuloSlugRoute
   '/categoria/$slug': typeof CategoriaSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sobre' | '/articulo/$slug' | '/categoria/$slug'
+  fullPaths:
+    | '/'
+    | '/ebook'
+    | '/guia-gratuita'
+    | '/sobre'
+    | '/articulo/$slug'
+    | '/categoria/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sobre' | '/articulo/$slug' | '/categoria/$slug'
-  id: '__root__' | '/' | '/sobre' | '/articulo/$slug' | '/categoria/$slug'
+  to:
+    | '/'
+    | '/ebook'
+    | '/guia-gratuita'
+    | '/sobre'
+    | '/articulo/$slug'
+    | '/categoria/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/ebook'
+    | '/guia-gratuita'
+    | '/sobre'
+    | '/articulo/$slug'
+    | '/categoria/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EbookRoute: typeof EbookRoute
+  GuiaGratuitaRoute: typeof GuiaGratuitaRoute
   SobreRoute: typeof SobreRoute
   ArticuloSlugRoute: typeof ArticuloSlugRoute
   CategoriaSlugRoute: typeof CategoriaSlugRoute
@@ -76,6 +115,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ebook': {
+      id: '/ebook'
+      path: '/ebook'
+      fullPath: '/ebook'
+      preLoaderRoute: typeof EbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guia-gratuita': {
+      id: '/guia-gratuita'
+      path: '/guia-gratuita'
+      fullPath: '/guia-gratuita'
+      preLoaderRoute: typeof GuiaGratuitaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -104,6 +157,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EbookRoute: EbookRoute,
+  GuiaGratuitaRoute: GuiaGratuitaRoute,
   SobreRoute: SobreRoute,
   ArticuloSlugRoute: ArticuloSlugRoute,
   CategoriaSlugRoute: CategoriaSlugRoute,
